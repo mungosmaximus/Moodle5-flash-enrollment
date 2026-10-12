@@ -1,0 +1,19 @@
+/local/qrenrol/
+├── version.php
+├── settings.php
+├── index.php
+├── entry.php
+├── db/
+│   ├── install.xml
+│   ├── access.php
+│   └── events.php
+├── classes/
+│   ├── observer.php
+│   ├── token_manager.php
+│   └── form/
+│       └── generate_form.php
+└── lang/
+    ├── en/
+    │   └── local_qrenrol.php
+    └── sr/
+        └── local_qrenrol.php

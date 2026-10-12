@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/qrenrol/db" VERSION="20261012" COMMENT="XMLDB file for local_qrenrol"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="local_qrenrol_tokens" COMMENT="Tokenized enrolment links">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="token" TYPE="char" LENGTH="64" NOTNULL="true" COMMENT="Unique random token"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" COMMENT="Human-readable link name"/>
+        <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true" COMMENT="Target course ID"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" COMMENT="Creation timestamp"/>
+        <FIELD NAME="expiresat" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" COMMENT="Expiration timestamp, 0 = never"/>
+        <FIELD NAME="createdby" TYPE="int" LENGTH="10" NOTNULL="true" COMMENT="User ID of creator"/>
+        <FIELD NAME="disabled" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" COMMENT="1 = manually disabled"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="token" TYPE="unique" FIELDS="token"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="courseid" UNIQUE="false" FIELDS="courseid"/>
+        <INDEX NAME="expiresat" UNIQUE="false" FIELDS="expiresat"/>
+        <INDEX NAME="disabled" UNIQUE="false" FIELDS="disabled"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>
